@@ -1,6 +1,6 @@
 # TodoList
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.9.
+This project was made to learn Angular. It is a simple todo list application that allows you to add, remove and mark tasks as done.
 
 ## Development server
 
