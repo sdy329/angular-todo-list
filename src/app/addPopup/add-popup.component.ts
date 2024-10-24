@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AddPopupService } from './add-popup-service.service';
+import { Component } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-popup',
@@ -10,24 +10,20 @@ import { AddPopupService } from './add-popup-service.service';
   styleUrl: './add-popup.component.css'
 })
 export class AddPopupComponent {
-  @Output() newEntry = new EventEmitter<string>();
 
-  todoForm = new FormGroup({
-    todoEntry: new FormControl('', Validators.required)
-  });
+  todoForm: FormGroup;
+  constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<AddPopupComponent>) {
+    this.todoForm = this.fb.group({
+      todoEntry: ['', Validators.required]
+    })
+  }
 
-  constructor(private addPopupService: AddPopupService) { }
 
-
-  addEntry() {
-    const entry = this.todoForm.value.todoEntry?.toString();
-    if (entry) {
-      this.newEntry.emit(entry);
-      this.closePopup();
-    }
+  onSubmit() {
+    this.closePopup();
   }
 
   closePopup() {
-    this.addPopupService.closePopup();
+    this.dialogRef.close(this.todoForm.value.todoEntry);
   }
 }
