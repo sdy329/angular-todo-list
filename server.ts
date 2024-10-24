@@ -4,6 +4,22 @@ import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import bootstrap from './src/main.server';
+/*
+import { config as dotENVConfig } from 'dotenv';
+import { MongoClient } from 'mongodb';
+import { Entry } from './src/app/modules/todoList/models/entry.model';
+
+
+dotENVConfig();
+
+const apiKey = process.env['MONGO_DB'] || 'mongodb://localhost:27017/todoList';
+export const mongoClient = new MongoClient(apiKey);
+const db = mongoClient.db('todoList');
+
+export const entries = db.collection<Entry>('entries');
+
+mongoClient.connect();
+*/
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {

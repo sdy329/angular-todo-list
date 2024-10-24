@@ -1,14 +1,17 @@
 import { Entry } from './entry.model';
+import { v4 as uuidv4 } from 'uuid';
 
 export class todoList implements Entry {
+    id: string;
     title: string;
     date: Date;
     array: Array<Entry>;
-    // 2024-10-31T13:19
+
     constructor() {
+        this.id = uuidv4();
         this.title = 'Test';
         this.date = new Date();
-        this.array = [{ title: 'Test', date: new Date() }];
+        this.array = [{ id: this.id, title: this.title + 1, date: this.date }, { id: this.id, title: this.title + 2, date: this.date }];
     }
 
     clearToDo() {
@@ -20,7 +23,7 @@ export class todoList implements Entry {
     }
 
     addNewEntry(title: string, date: Date) {
-        this.array.push({ title: title, date: date });
+        this.array.push({ id: uuidv4(), title: title, date: date });
     }
 
     getToDoList() {
