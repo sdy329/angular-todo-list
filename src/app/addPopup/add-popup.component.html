@@ -1,0 +1,15 @@
+<div class="p-4">
+    <h2 mat-dialog-title>Add New Entry</h2>
+    <div mat-dialog-content>
+        <form [formGroup]="todoForm" (ngSubmit)="addEntry()">
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control" formControlName="todoEntry" placeholder="New Entry" required>
+                <label for="todoEntry">New Entry</label>
+            </div>
+            <div mat-dialog-actions>
+                <button type="submit" class="btn btn-primary" [disabled]="!todoForm.valid">Submit</button>
+                <button type="button" class="btn btn-danger float-end" (click)="closePopup()">Close</button>
+            </div>
+        </form>
+    </div>
+</div>
