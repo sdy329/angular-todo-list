@@ -6,6 +6,10 @@
                 <input type="text" class="form-control" formControlName="todoEntry" placeholder="New Entry" required>
                 <label for="todoEntry">New Entry</label>
             </div>
+            <div class="form-floating mb-4">
+                <input type="datetime-local" class="form-control" formControlName="dueDate" placeholder="date" required>
+                <label for="dueDate">Due Date</label>
+            </div>
             <div mat-dialog-actions>
                 <button type="submit" class="btn btn-primary" [disabled]="!todoForm.valid">Submit</button>
                 <button type="button" class="btn btn-danger float-end" (click)="closePopup()">Close</button>

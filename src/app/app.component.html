@@ -3,14 +3,18 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>ToDo List</th>
+          <th colspan="2">ToDo List</th>
         </tr>
       </thead>
       <tbody>
         @for(todo of todoArray.getToDoList(); track todo; let i = $index){
         <tr>
           <td>
-            {{todo}}
+            <span>{{todo.title}}</span>
+            <br>
+            <span class="text-secondary">{{todo.date | date: "short"}}</span>
+          </td>
+          <td>
             <button class="btn btn-danger float-end" (click)="todoArray.removeToDo(i)">Remove</button>
           </td>
         </tr>
@@ -18,7 +22,7 @@
       </tbody>
       <tfoot>
         <tr>
-          <td>
+          <td colspan="2">
             <button class="btn btn-success me-2" (click)="openAddPopup()">Add</button>
             <button class="btn btn-danger" (click)="todoArray.clearToDo()">Clear</button>
           </td>

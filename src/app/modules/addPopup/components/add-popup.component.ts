@@ -14,7 +14,8 @@ export class AddPopupComponent {
   todoForm: FormGroup;
   constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<AddPopupComponent>) {
     this.todoForm = this.fb.group({
-      todoEntry: ['', Validators.required]
+      todoEntry: ['', Validators.required],
+      dueDate: ['', [Validators.required]]
     })
   }
 
@@ -24,6 +25,6 @@ export class AddPopupComponent {
   }
 
   closePopup() {
-    this.dialogRef.close(this.todoForm.value.todoEntry);
+    this.dialogRef.close(this.todoForm.value);
   }
 }

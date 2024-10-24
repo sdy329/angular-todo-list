@@ -1,6 +1,15 @@
-export class todoList {
-    array: Array<string> = ['Task 1', 'Task 2'];
-    constructor() { }
+import { Entry } from './entry.model';
+
+export class todoList implements Entry {
+    title: string;
+    date: Date;
+    array: Array<Entry>;
+    // 2024-10-31T13:19
+    constructor() {
+        this.title = 'Test';
+        this.date = new Date();
+        this.array = [{ title: 'Test', date: new Date() }];
+    }
 
     clearToDo() {
         this.array.splice(0);
@@ -10,8 +19,8 @@ export class todoList {
         this.array.splice(index, 1);
     }
 
-    addNewEntry(entry: string) {
-        this.array.push(entry);
+    addNewEntry(title: string, date: Date) {
+        this.array.push({ title: title, date: date });
     }
 
     getToDoList() {
