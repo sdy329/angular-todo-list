@@ -7,11 +7,11 @@
         </tr>
       </thead>
       <tbody>
-        @for(todo of todo_array; track todo; let i = $index){
+        @for(todo of todoArray.getToDoList(); track todo; let i = $index){
         <tr>
           <td>
             {{todo}}
-            <button class="btn btn-danger float-end" (click)="removeToDo(i)">Remove</button>
+            <button class="btn btn-danger float-end" (click)="todoArray.removeToDo(i)">Remove</button>
           </td>
         </tr>
         }
@@ -20,7 +20,7 @@
         <tr>
           <td>
             <button class="btn btn-success me-2" (click)="openAddPopup()">Add</button>
-            <button class="btn btn-danger" (click)="clearToDo()">Clear</button>
+            <button class="btn btn-danger" (click)="todoArray.clearToDo()">Clear</button>
           </td>
         </tr>
       </tfoot>

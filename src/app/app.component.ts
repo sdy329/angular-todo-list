@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgFor } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { AddPopupComponent } from './addPopup/add-popup.component';
+import { AddPopupComponent } from './modules/addPopup/components/add-popup.component';
+import { todoList } from './modules/todoList/models/todo-list.model';
 
 @Component({
   selector: 'app-root',
@@ -12,20 +13,10 @@ import { AddPopupComponent } from './addPopup/add-popup.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  todo_array: Array<string> = ['Task 1', 'Task 2'];
+  todoArray: todoList;
 
-  constructor(private dialog: MatDialog) { }
-
-  clearToDo() {
-    this.todo_array.splice(0);
-  }
-
-  removeToDo(index: number) {
-    this.todo_array.splice(index, 1);
-  }
-
-  addNewEntry(entry: string) {
-    this.todo_array.push(entry);
+  constructor(private dialog: MatDialog) {
+    this.todoArray = new todoList();
   }
 
   openAddPopup() {
@@ -33,7 +24,7 @@ export class AppComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.addNewEntry(result);
+        this.todoArray.addNewEntry(result);
       }
     });
   }
