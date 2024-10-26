@@ -26,4 +26,9 @@ export class todoList implements Entry {
     getToDoList() {
         return this.array;
     }
+
+    editEntry(index: number, entry: Entry) {
+        this.array[index].title = entry.title;
+        this.array[index].date = entry.date;
+    }
 }

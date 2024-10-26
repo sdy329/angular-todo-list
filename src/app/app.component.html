@@ -15,7 +15,10 @@
             <span class="text-secondary">{{todo.date | date: "short"}}</span>
           </td>
           <td>
-            <button class="btn btn-danger float-end" (click)="todoArray.removeToDo(i)">Remove</button>
+            <div class="float-end">
+              <button class="btn btn-primary me-2" (click)="openEditPopup(i, todo)">Edit</button>
+              <button class="btn btn-danger" (click)="todoArray.removeToDo(i)">Remove</button>
+            </div>
           </td>
         </tr>
         }
