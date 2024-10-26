@@ -4,7 +4,7 @@ import { NgFor, DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { AddPopupComponent } from './modules/addPopup/components/add-popup.component';
 import { todoList } from './modules/todoList/models/todo-list.model';
-import { EditPopupComponent } from './modules/editPopup/edit-popup.component';
+import { EditPopupComponent } from './modules/editPopup/components/edit-popup.component';
 import { Entry } from './modules/todoList/models/entry.model';
 
 @Component({

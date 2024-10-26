@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Entry } from '../todoList/models/entry.model';
+import { Entry } from '../../todoList/models/entry.model';
 
 @Component({
   selector: 'app-popup',
