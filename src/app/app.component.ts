@@ -23,7 +23,9 @@ export class AppComponent {
     const dialogRef = this.dialog.open(AddPopupComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result.todoEntry) {
+      if (result === undefined) {
+        return;
+      } else if (result.todoEntry) {
         const title = result.todoEntry;
         const date = result.dueDate;
         this.todoArray.addNewEntry(title, date);
